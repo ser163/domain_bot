@@ -1,0 +1,7 @@
+domains:
+  - example.com
+  - example.net
+days: 30
+external: E:\code\go\ding_pigeon\dpingeon.exe
+method: args
+args: -conf=E:\code\go\ding_pigeon\config.yaml -type=text -content="{message}"
