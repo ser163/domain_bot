@@ -1,6 +1,9 @@
 # domain_bot
  用来go语言编写检测域名过期的程序.
 
+## 参数
+ `-c` 配置文件位置
+
 ## 配置文件
 将config.yaml.bak 改为config.yaml
 

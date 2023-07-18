@@ -3,9 +3,11 @@ package main
 import (
 	"bytes"
 	"errors"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"net"
+	"os"
 	"os/exec"
 	"regexp"
 	"strings"
@@ -23,13 +25,17 @@ type Config struct {
 }
 
 func main() {
-	configFile, err := ioutil.ReadFile("config.yaml")
+	// 解析命令行参数
+	configFile := flag.String("c", "config.yaml", "配置文件的位置")
+	flag.Parse()
+
+	configd, err := os.ReadFile(*configFile)
 	if err != nil {
 		panic(err)
 	}
 
 	var config Config
-	err = yaml.Unmarshal(configFile, &config)
+	err = yaml.Unmarshal(configd, &config)
 	if err != nil {
 		panic(err)
 	}
